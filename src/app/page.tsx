@@ -1,4 +1,3 @@
-'use client'
 import { useEffect, useState } from "react";
 
 interface WeatherData {
@@ -55,14 +54,14 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-gradient-to-r from-indigo-400 to-cyan-400 flex justify-center items-center">
-      <div className="h-full w-full max-w-md bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-6">
+    <main className="bg-gradient-to-r from-indigo-400 to-cyan-400 flex justify-center items-center min-h-screen">
+      <div className="w-full max-w-lg bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-6">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             fetchData(city);
           }}
-          className="mb-4"
+          className="mb-4 flex flex-col md:flex-row items-center"
         >
           <input
             type="text"
@@ -70,9 +69,9 @@ export default function Home() {
             id="cityName"
             placeholder="Enter city name"
             onChange={(e) => setCity(e.target.value)}
-            className="bg-white focus:outline-none border border-gray-300 rounded-md py-2 px-4 mr-2"
+            className="bg-white focus:outline-none border border-gray-300 rounded-md py-2 px-4 mb-2 md:mb-0 md:mr-2 w-full md:w-auto"
           />
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full md:w-auto">
             Search
           </button>
         </form>
